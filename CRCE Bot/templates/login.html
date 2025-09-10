@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#" style="font-size: large;">CRCE Bot</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <a class="navbar-brand" href="#" style="font-size: large;">RGMCET Bot</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="/">Log In</a></li>
@@ -31,20 +31,25 @@
 
     <section class="login-dark"> 
         <form action='/login_validation' method='POST'>
-            <div>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                            <strong>{{ message }}</strong> <br><small> Try again or forgot the password!</small>
-                        </div>
-                        {% endfor %}
+<div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{ message }}</strong>
+                    {% if category == "danger" %}
+                        <br><small>Try again or forgot the password!</small>
                     {% endif %}
-                {% endwith %}
-            </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
             <div class="form-group">
                 <input class="form-control" type="email" name="email" placeholder="Email" required/>
