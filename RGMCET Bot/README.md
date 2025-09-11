@@ -22,19 +22,19 @@ It provides a simple web interface where users can chat with the bot, ask questi
 
 - **Operating System:** Windows/Linux/Mac  
 - **Frontend:**  
-  ![HTML5](https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg)  
-  ![CSS3](https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg)  
-  ![JavaScript](https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg)  
-  ![Bootstrap](https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg)  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" width="60"/>  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" width="60"/>  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="60"/>  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap" width="60"/>  
 
 - **Backend:**  
-  ![Python](https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg)  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="60"/>  
 
 - **Framework:**  
-  ![Flask](https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg)  
+  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="Flask" width="60"/>  
 
 - **Database:**  
-  ![MySQL](https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg)  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="60"/>  
 
 <br>
 
@@ -76,21 +76,22 @@ cpp
 Copy code
 http://127.0.0.1:5000/
 <br>
-📸 Screenshots
+📸 Screenshots <br>
 🔹 Register Page
-    ![alt text](Images_ss/register.png)
+    ![alt text](Images_ss/register.png)<br>
 🔹 Login Page
-    ![alt text](Images_ss/login.png)
+    ![alt text](Images_ss/login.png)<br>
 🔹 Forgot Password
-    ![alt text](Images_ss/forgot_password.png)
+    ![alt text](Images_ss/forgot_password.png)<br>
 🔹 Chatbot Default Screen
-    ![alt text](Images_ss/default_page.png)
+    ![alt text](Images_ss/default_page.png)<br>
 🔹 Chatbot Query
-    ![alt text](Images_ss/chatbot_query1.png)
+    ![alt text](Images_ss/chatbot_query1.png)<br>
+    ![alt text](Images_ss/chatbot_query2.png)
 🔹 About Us
-    ![alt text](Images_ss/about_us.png)
+    ![alt text](Images_ss/about_us.png)<br>
 🔹 Suggestion Box
-    ![alt text](suggestions_box.png)
+    ![alt text](suggestions_box.png)<br>
 <br>
 📢 Contribution
 Contributions are welcome! Fork the repo, make improvements, and submit a PR 🚀
