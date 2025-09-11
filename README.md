@@ -86,7 +86,7 @@ http://127.0.0.1:5000/
 🔹 Chatbot Default Screen<br>
     ![alt text](Images_ss/default_page.png)<br>
 🔹 Chatbot Query<br>
-    ![alt text](Images_ss/chatbot_query1.png)<br>
+   ![Chatbot Query](Images_ss/chatbot_query1.png)<br>
     ![alt text](Images_ss/chatbot_query2.png)<br>
 🔹 About Us<br>
     ![alt text](Images_ss/about_us.png)<br>
