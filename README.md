@@ -31,7 +31,7 @@ It provides a simple web interface where users can chat with the bot, ask questi
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="60"/>  
 
 - **Framework:**  
-  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="Flask" width="60"/>  
+  ![Flask](https://img.shields.io/badge/Flask-%23000?style=flat-square&logo=flask&logoColor=white)
 
 - **Database:**  
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="60"/>  
@@ -77,22 +77,22 @@ Copy code
 http://127.0.0.1:5000/
 <br>
 📸 Screenshots <br>
-🔹 Register Page
+🔹 Register Page<br>
     ![alt text](Images_ss/register.png)<br>
-🔹 Login Page
+🔹 Login Page<br>
     ![alt text](Images_ss/login.png)<br>
-🔹 Forgot Password
+🔹 Forgot Password<br>
     ![alt text](Images_ss/forgot_password.png)<br>
-🔹 Chatbot Default Screen
+🔹 Chatbot Default Screen<br>
     ![alt text](Images_ss/default_page.png)<br>
-🔹 Chatbot Query
+🔹 Chatbot Query<br>
     ![alt text](Images_ss/chatbot_query1.png)<br>
-    ![alt text](Images_ss/chatbot_query2.png)
-🔹 About Us
+    ![alt text](Images_ss/chatbot_query2.png)<br>
+🔹 About Us<br>
     ![alt text](Images_ss/about_us.png)<br>
-🔹 Suggestion Box
+🔹 Suggestion Box<br>
     ![alt text](suggestions_box.png)<br>
-<br>
+<br><br>
 📢 Contribution
 Contributions are welcome! Fork the repo, make improvements, and submit a PR 🚀
 
