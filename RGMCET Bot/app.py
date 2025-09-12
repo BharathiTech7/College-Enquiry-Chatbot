@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, logging, url_for, redirect, flash
 from flask_recaptcha import ReCaptcha
 from markupsafe import Markup
+import flask_recaptcha 
 import mysql.connector
 import os
 # === Chatbot + Gemini Integration ===
@@ -9,6 +10,8 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import google.generativeai as genai
 from dotenv import load_dotenv
 
+# --- Fix for flask_recaptcha missing Markup ---
+flask_recaptcha.Markup = Markup
 
 load_dotenv()
 # === Flask App Setup ===
