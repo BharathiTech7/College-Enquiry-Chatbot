@@ -1,12 +1,11 @@
-from flask import Flask, render_template, request, session, logging, url_for, redirect, flash
+from flask import Flask, render_template, request, session, url_for, redirect, flash
 from flask_recaptcha import ReCaptcha
 from markupsafe import Markup
-import flask_recaptcha 
+import flask_recaptcha
 import mysql.connector
 import os
 # === Chatbot + Gemini Integration ===
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
 import google.generativeai as genai
 from dotenv import load_dotenv
 
@@ -14,6 +13,7 @@ from dotenv import load_dotenv
 flask_recaptcha.Markup = Markup
 
 load_dotenv()
+
 # === Flask App Setup ===
 app = Flask(__name__)
 recaptcha = ReCaptcha(app=app)
@@ -31,21 +31,24 @@ recaptcha.init_app(app)
 # Secret key for sessions
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
-# === Database Setup ===
-conn = mysql.connector.connect(
-    host=os.getenv("MYSQL_HOST"),
-    port="3306",
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    database=os.getenv("MYSQL_DB"),
-)
-cur = conn.cursor()
+
+# === Database Connection Function ===
+def get_connection():
+    return mysql.connector.connect(
+        host=os.getenv("MYSQL_HOST"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        database=os.getenv("MYSQL_DB"),
+        port=3306,
+        ssl_disabled=False
+    )
+
 
 # === Routes ===
-
 @app.route("/")
 def login():
     return render_template("login.html")
+
 
 @app.route("/index")
 def home():
@@ -54,55 +57,94 @@ def home():
     else:
         return redirect("/")
 
+
 @app.route("/register")
 def about():
     return render_template("register.html")
+
 
 @app.route("/forgot")
 def forgot():
     return render_template("forgot.html")
 
-# In /login_validation route
+
+# Login validation
 @app.route("/login_validation", methods=["POST"])
 def login_validation():
     email = request.form.get("email")
     password = request.form.get("password")
 
-    cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
-    users = cur.fetchall()
-    if len(users) > 0:
-        session["id"] = users[0][0]
-        flash("You were successfully logged in", "success")  # <-- add "success" category
-        return redirect("/index")
-    else:
-        flash("Invalid credentials !!!", "danger")  # <-- add "danger" category
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+        users = cur.fetchall()
+        cur.close()
+        conn.close()
+
+        if len(users) > 0:
+            session["id"] = users[0][0]
+            flash("You were successfully logged in", "success")
+            return redirect("/index")
+        else:
+            flash("Invalid credentials !!!", "danger")
+            return redirect("/")
+    except Exception as e:
+        print("DB Error:", e)
+        flash("Database connection failed", "danger")
         return redirect("/")
 
+
+# Register new user
 @app.route("/add_user", methods=["POST"])
 def add_user():
     name = request.form.get("name")
     email = request.form.get("uemail")
     password = request.form.get("upassword")
 
-    cur.execute("INSERT INTO users(name, email, password) VALUES(%s, %s, %s)", (name, email, password))
-    conn.commit()
-    cur.execute("SELECT * FROM users WHERE email = %s", (email,))
-    myuser = cur.fetchall()
-    flash("You have successfully registered!")
-    session["id"] = myuser[0][0]
-    return redirect("/index")
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO users(name, email, password) VALUES(%s, %s, %s)", (name, email, password))
+        conn.commit()
+        cur.execute("SELECT * FROM users WHERE email = %s", (email,))
+        myuser = cur.fetchall()
+        cur.close()
+        conn.close()
 
+        flash("You have successfully registered!")
+        session["id"] = myuser[0][0]
+        return redirect("/index")
+    except Exception as e:
+        print("DB Error:", e)
+        flash("Registration failed", "danger")
+        return redirect("/register")
+
+
+# Suggestion form
 @app.route("/suggestion", methods=["POST"])
 def suggestion():
     email = request.form.get("uemail")
     suggesMess = request.form.get("message")
 
-    cur.execute("INSERT INTO suggestion(email, message) VALUES(%s, %s)", (email, suggesMess))
-    conn.commit()
-    flash("Your suggestion is successfully sent!")
-    return redirect("/index")
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO suggestion(email, message) VALUES(%s, %s)", (email, suggesMess))
+        conn.commit()
+        cur.close()
+        conn.close()
 
-@app.route('/add_user',methods=['POST'])
+        flash("Your suggestion is successfully sent!")
+        return redirect("/index")
+    except Exception as e:
+        print("DB Error:", e)
+        flash("Failed to send suggestion", "danger")
+        return redirect("/index")
+
+
+# Recaptcha test route
+@app.route('/add_user', methods=['POST'])
 def register():
     if recaptcha.verify():
         flash("New User Added Successfully")
@@ -111,43 +153,49 @@ def register():
         flash("Error Recaptcha")
         return redirect("/register")
 
+
 @app.route("/logout")
 def logout():
-    session.pop("id")
+    session.pop("id", None)
     return redirect("/")
 
 
-# In /forgot_password route
+# Forgot password update
 @app.route("/forgot_password", methods=["POST"])
 def forgot_password():
     email = request.form.get("uemail")
     new_password = request.form.get("upassword")
-    # update password in DB
-    cur.execute("UPDATE users SET password=%s WHERE email=%s", (new_password, email))
-    conn.commit()
-    flash("Password updated successfully!", "success")  # <-- add "success" category
-    return redirect("/")
+
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("UPDATE users SET password=%s WHERE email=%s", (new_password, email))
+        conn.commit()
+        cur.close()
+        conn.close()
+
+        flash("Password updated successfully!", "success")
+        return redirect("/")
+    except Exception as e:
+        print("DB Error:", e)
+        flash("Password reset failed", "danger")
+        return redirect("/forgot")
 
 
-
-
-
-# Load .env
-
+# === Gemini + Chatbot Setup ===
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Setup chatbot
 # Import trained chatbot from chatbot.py
 from chatbot import chatbot
 
-# trainer.train("chatterbot.corpus.english")  # only if needed
 
 @app.route("/chat")
 def chat():
     if "id" in session:
-        return render_template("index.html")  # your chatbot page
+        return render_template("index.html")  # chatbot page
     else:
         return redirect("/")
+
 
 @app.route("/get")
 def get_bot_response():
