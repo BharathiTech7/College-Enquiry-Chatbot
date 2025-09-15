@@ -34,14 +34,20 @@ app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 # === Database Connection Function ===
 def get_connection():
-    return mysql.connector.connect(
-        host=os.getenv("MYSQL_HOST"),
-        user=os.getenv("MYSQL_USER"),
-        password=os.getenv("MYSQL_PASSWORD"),
-        database=os.getenv("MYSQL_DB"),
-        port=int(os.getenv("MYSQL_PORT", 3306)),
-        ssl_disabled=os.getenv("MYSQL_SSL_DISABLED", "False") == "True"
-    )
+    conn_args = {
+        "host": os.getenv("MYSQL_HOST"),
+        "user": os.getenv("MYSQL_USER"),
+        "password": os.getenv("MYSQL_PASSWORD"),
+        "database": os.getenv("MYSQL_DB"),
+        "port": 3306,
+    }
+
+    # If running on Render → add ssl_disabled
+    if os.getenv("RENDER") == "true":
+        conn_args["ssl_disabled"] = True
+
+    return mysql.connector.connect(**conn_args)
+
 
 
 
