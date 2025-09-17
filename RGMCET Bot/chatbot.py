@@ -154,11 +154,13 @@ conversation = [
     "<b> 1.3.2 Notices<br>The link to Notices👉 <a href=" 'https://rgmexams.co.in/Examinations.php' ">Click Here</a> </b>",
 
     "1.4",
-    "<b > EXAMINATION <br>These are the top results:<br> 1.4.1 Notices<br> 1.4.2 Examination Process <br> ",
+    "<b> EXAMINATION <br>These are the top results:<br> 1.4.1 Notices<br> 1.4.2 Examination Process <br> 1.4.3 Results <br></b>",
     "1.4.1",
     "<b > 1.4.1 Notices<br>The link to Notices👉 <a href=" 'https://rgmexams.co.in/Examinations.php' ">Click Here</a> </b>",
     "1.4.2",
     "<b > 1.4.2 Examination Process<br>The link to Examination Process👉<a href=" 'https://www.rgmcet.edu.in/exams-section' ">Click Here</a> </b>",
+    "1.4.3",
+    "<b> 1.4.3 Results<br>The link to Results 👉 <a href='https://rgmexams.co.in/Login.php'>Click Here</a> </b>",
     
     "1.5",
     "<b > PLACEMENTS These are the top results:<br> 1.5.1 Placements<br> 1.5.2 Our Recruiters <br> 1.5.3 Placement Statistics </b>",
@@ -190,7 +192,7 @@ conversation = [
     "<b> 2.3.1 Notices <br>The link to Notices 👉 <a href=" 'https://rgmexams.co.in/Examinations.php' ">Click Here</a> </b>",
       
     "3",
-    "<b> PARENTS <br>The following are frequently searched terms related to Parents. Please select one from the options below : <br> <br> 3.1 About Us <br>3.2 Notices <br>3.3 Fee Payment <br>3.4 Placements <br>3.5 Anti-Ragging </b> " ,
+    "<b> PARENTS <br>The following are frequently searched terms related to Parents. Please select one from the options below : <br> <br> 3.1 About Us <br>3.2 Notices <br>3.3 Fee Payment <br>3.4 Placements <br>3.5 Anti-Ragging <br>3.6 Results</b> " ,
 
     "3.1",
     "<b > ABOUT US<br>These are the top results:<br> <br> 3.1.1 About RGMCET<br> 3.1.2 Management <br> 3.1.3 Contact Us </b>",
@@ -226,6 +228,9 @@ conversation = [
     "<b > ANTI-RAGGING<br>These are the top results:<br> <br>3.5.1 Anti-Ragging Committee </b>",
     "3.5.1",
     "<b > 3.5.1 Anti-Ragging Committee<br>The link 👉 <a href=" 'https://www.rgmcet.edu.in/anti-ragging' ">Click Here</a> </b>",
+    
+    "3.6",
+    "<b> 3.6 Results<br>The link to Student Results 👉 <a href='https://rgmexams.co.in/Login.php'>Click Here</a> </b>",
 
     "4",
     "<b VISITORS <br>The following are frequently searched terms related to visitors. Please select one from the options below : <br> <br> 4.1 About Us<br>4.2 Programs We Offer <br>4.3 Student Bodies <br>4.4 Extra-Curricular <br>4.5 Careers @ RGMCET </b>",

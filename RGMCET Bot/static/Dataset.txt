@@ -40,9 +40,10 @@ conversation = [
     "1.3", "<b>ADMINISTRATIVE <br>1.3.1 Students Portal <br>1.3.2 Notices</b>",
     "1.3.1", "<b>Students Portal 👉 <a href='https://rgmexams.co.in/Login.php'>Click Here</a></b>",
     "1.3.2", "<b>Notices 👉 <a href='https://rgmexams.co.in/Examinations.php'>Click Here</a></b>",
-    "1.4", "<b>EXAMINATION <br>1.4.1 Notices <br>1.4.2 Examination Process</b>",
+    "1.4", "<b>EXAMINATION <br>1.4.1 Notices <br>1.4.2 Examination Process <br>1.4.3 Results</b>",
     "1.4.1", "<b>Notices 👉 <a href='https://rgmexams.co.in/Examinations.php'>Click Here</a></b>",
     "1.4.2", "<b>Examination Process 👉 <a href='https://www.rgmcet.edu.in/exams-section'>Click Here</a></b>",
+    "1.4.3", "<b> 1.4.3 Results<br>The link to Results 👉 <a href='https://rgmexams.co.in/Login.php'>Click Here</a> </b>"
     "1.5", "<b>PLACEMENTS <br>1.5.1 Placements <br>1.5.2 Our Recruiters <br>1.5.3 Placement Statistics</b>",
     "1.5.1", "<b>Placements 👉 <a href='https://www.rgmcet.edu.in/about_tap'>Click Here</a></b>",
     "1.5.2", "<b>Our Recruiters 👉 <a href='https://www.rgmcet.edu.in/Placement_Records'>Click Here</a></b>",
@@ -57,7 +58,7 @@ conversation = [
     "2.3", "<b>EXAMINATION <br>2.3.1 Notices</b>",
     "2.3.1", "<b>Notices 👉 <a href='https://rgmexams.co.in/Examinations.php'>Click Here</a></b>",
 
-    "3", "<b>PARENTS <br>3.1 About Us <br>3.2 Notices <br>3.3 Fee Payment <br>3.4 Placements <br>3.5 Anti-Ragging</b>",
+    "3", "<b>PARENTS <br>3.1 About Us <br>3.2 Notices <br>3.3 Fee Payment <br>3.4 Placements <br>3.5 Anti-Ragging <br>3.6 Results</b>",
     "3.1", "<b>ABOUT US <br>3.1.1 About RGMCET <br>3.1.2 Management <br>3.1.3 Contact Us</b>",
     "3.1.1", "<b>About RGMCET 👉 <a href='https://www.rgmcet.edu.in/about-us'>Click Here</a></b>",
     "3.1.2", "<b>Management 👉 <a href='https://www.rgmcet.edu.in/management'>Click Here</a></b>",
@@ -73,6 +74,7 @@ conversation = [
     "3.4.3", "<b>Placement Statistics 👉 <a href='https://www.rgmcet.edu.in/Placement_Records'>Click Here</a></b>",
     "3.5", "<b>ANTI-RAGGING <br>3.5.1 Anti-Ragging Committee</b>",
     "3.5.1", "<b>Anti-Ragging Committee 👉 <a href='https://www.rgmcet.edu.in/anti-ragging'>Click Here</a></b>",
+    "3.6", "<b> 3.6 Results<br>The link to Student Results 👉 <a href='https://rgmexams.co.in/Login.php'>Click Here</a> </b>"
 
     "4", "<b>VISITORS <br>4.1 About Us <br>4.2 Programs We Offer <br>4.3 Student Bodies <br>4.4 Extra-Curricular <br>4.5 Careers @ RGMCET</b>",
     "4.1", "<b>ABOUT US <br>4.1.1 About RGMCET <br>4.1.2 Our History <br>4.1.3 Contact Us</b>",
