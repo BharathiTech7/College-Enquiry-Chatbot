@@ -3,7 +3,9 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+# Ignore all sqlite3 files except the main database
 *.sqlite3
+!database.sqlite3
 
 # Environment
 chatbot_env/
