@@ -213,7 +213,7 @@ def get_bot_response():
         return str(bot_response)
 
     # Gemini fallback with context
-    model = genai.GenerativeModel("models/gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.5-flash")
     response = model.generate_content(
         f"You are an assistant for Rajeev Gandhi Memorial College of Engineering & Technology (RGMCET), Nandyal, Andhra Pradesh. "
         f"Always give correct and helpful information about RGMCET only. "
